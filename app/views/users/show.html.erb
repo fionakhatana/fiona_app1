@@ -1,0 +1,17 @@
+<h1>Welcome
+<%=@user.name%>
+</h1>
+<h1>Rate Movies:</h1>
+<hr>
+<%i=0%>
+<% @movies.each do |movie|%>
+<p> <%= link_to movie.name,new_user_path(:id =>movie.id,:user_id => params[:id],:type => 'Movie')  %> <%=@rating_movie[i] %>
+<%i = i+1%>
+<%end%>
+<h1>Rate Songs:</h1>
+<%i=0%>
+<% @songs.each do |song|%>
+<p> <%= link_to song.name,new_user_path(:id =>song.id,:user_id => params[:id],:type => 'Song')%> <%=@rating_song[i]%>
+<%i=i+1%>
+<%end%>
+

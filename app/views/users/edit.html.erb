@@ -1,0 +1,12 @@
+<p>TYPE:<%= params[:type]%></p>
+<p>USER_ID:<%= params[:user_id]%></p>
+<p>MOVIE_ID:<%= params[:id]%></p>
+
+
+<%= form_for @rating, url:users_path(:user_id => params[:user_id],:type => params[:type],:id => params[:id]) do |f| %>
+  Enter stars:
+  <%= f.text_field :stars %>
+  <%= f.submit "Save" %>
+<% end %>
+
+

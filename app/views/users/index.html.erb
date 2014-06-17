@@ -1,0 +1,28 @@
+<h1>Welcome</h1>
+<hr>
+<!--Choose User:-->
+Enter User Name:
+<hr>
+<%# @users.each do |user|%>
+ <p> <%#= link_to user.name,user%> </p>
+<%#end%>
+
+
+  <%= form_tag(user_path(id:1), method: "get") do %>
+
+  <%= text_field_tag(:name) %>
+  <%= submit_tag("Enter") %>
+  <% end %>
+  <%= link_to "new_user","new_user.html.erb"%> 
+
+
+
+<%#= form_for @user, url:user_path(id:1),method: 'GET' do |f| %>
+  <%#= f.text_field :name %>
+  <%#= f.submit "Validate" %>
+<%# end %>
+
+
+
+
+

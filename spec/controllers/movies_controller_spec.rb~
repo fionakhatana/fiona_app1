@@ -1,0 +1,5 @@
+require 'spec helper'
+
+describe MoviesController do
+  context "GET index"
+end

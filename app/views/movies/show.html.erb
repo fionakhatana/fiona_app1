@@ -1,0 +1,23 @@
+<h1><p><%= @movie.name%></p><h1>
+<hr>
+<%= simple_nested_form_for @movie_rate,url:movie_path(@movie),method: :patch do |f|%>
+<%= f.input :stars,collection: 1..5%>
+<%= f.button :submit%>
+<%end%>
+<p><%=@movie.description%></p>
+
+<h2>Songs:</h2>
+<hr>
+<% @songs.each do |song|%>
+<p>  <%= song.name%></p>
+<%end%>
+
+<h2>Cast:</h2>
+<hr>
+<%i = 0%>
+<% @actors.each do |actor|%>
+<p>  <%= actor.name%> <%=@role; i = i+1%></p>
+
+<%end%>
+
+

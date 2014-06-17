@@ -1,0 +1,25 @@
+
+
+<html>
+
+  Welcome to my World
+
+  <%= rand(10)%>
+  <% a=Actor.all;%>
+  <%  @actors.each do |i|%> 
+  <p><%=link_to i.name,i %></p>
+  <% end%>
+
+  <%= form_tag("/actors", method: "post") do %>
+  
+  <%= text_field_tag(:act_name) %>
+  <%= submit_tag("Enter") %>
+  <% end %>
+  <%=link_to "new",new_actor_path%>
+  
+
+
+
+
+
+  </html>

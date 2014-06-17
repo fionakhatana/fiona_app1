@@ -1,0 +1,17 @@
+<h1>IMDB</h1>
+
+<%= link_to "Create_new_movie",new_movie_path%>
+<hr>
+<%= link_to "View_actors", actors_path%>
+<hr>
+<%= link_to "View_users", users_path%>
+<%if user_signed_in?%>
+<p><%= link_to "rate", movies_path%></p>
+<%end%>
+<hr>
+<%  @movies.each do |movie| %>
+  <p><%=link_to movie.name,movie %>
+  <%=link_to("delete",movie_path(movie),method: :delete)%>
+  <%= link_to("update",edit_movie_path(movie),method: :get)%>
+</p>
+<%end%>

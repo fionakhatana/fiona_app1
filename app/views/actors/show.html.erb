@@ -1,0 +1,19 @@
+<%=@actor.name %><BR>
+MOVIES DONE:
+
+
+<% @actor.movie_actors.includes(:movie).each do |movie_actor| %>
+	<%= movie_actor.role %>
+	<%= movie_actor.movie.name %>
+<%end%>
+
+
+<%= link_to("delete",actor_path,method: :delete)%>
+<%= link_to("update",edit_actor_path,method: :get)%>
+
+
+<%#= form_for @actors, url:update_actor_path do |f| %>
+  <%#= f.text_field :ac_name %>
+  <%#= f.submit "Update" %>
+<%# end %>
+
