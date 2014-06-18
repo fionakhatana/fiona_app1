@@ -1,23 +1,34 @@
 <h1><p><%= @movie.name%></p><h1>
 <hr>
+
+<script>
+  var movie_id = "<%= @movie.id %>"
+  $( document ).on( "click", "link_rate" );   
+</script>
+
 <%= label_tag :rate_movie %>
-<%= select_tag :stars, options_for_select(1..5)%>
-<%= link_to "rate", "javascript:void(0)", id: "link_rate" %>
+<% if @rated > 0 %>
+  <%= label_tag :star,@rated%>
+  <% else%>
+  <%= select_tag :stars, options_for_select(1..5)%>
+
+  <%= link_to "rate", "javascript:void(0)", id: "link_rate" %>
+<%end%>
 
 <p><%=@movie.description%></p>
 
 <h2>Songs:</h2>
 <hr>
-<% @songs.each do |song|%>
-<p>  <%= song.name%></p>
-<%end%>
+  <% @songs.each do |song|%>
+    <p>  <%= song.name%></p>
+  <%end%>
 
 <h2>Cast:</h2>
-<hr>
-<%i = 0%>
-<% @actors.each do |actor|%>
-<p>  <%= actor.name%> <%=@role; i = i+1%></p>
 
-<%end%>
+  <hr>
+  <%i = 0%>
+  <% @actors.each do |actor|%>
+    <p>  <%= actor.name%> <%=@role; i = i+1%></p>
 
-
+  <%end%>
+ 

@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140616053301) do
   create_table "movies", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.text     "director"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

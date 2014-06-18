@@ -29,6 +29,14 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])     
     @songs = @movie.songs 
     @actors = @movie.actors
+
+    rating= current_user.ratings.where(rateable: @movie)[0]
+    
+    @rated = -1
+    if rating.present?
+      @rated = rating.stars
+    end
+
   end
   def create
       @movie = Movie.new(movies_params)
@@ -52,7 +60,9 @@ class MoviesController < ApplicationController
     # save in database
     
     @movie = Movie.find(params[:movie_id])
+    #p current_user
     current_user.ratings.create(stars: params[:stars], rateable: @movie)
-#    render  action: 'show'
+    #render  action: 'show'
+
   end
 end
