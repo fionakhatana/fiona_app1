@@ -29,16 +29,6 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])     
     @songs = @movie.songs 
     @actors = @movie.actors
-    @role = Array.new
-    @actors.each do |a|
-      a.movie_actors.each do |acto|
-        if acto.movie_id == @movie.id
-      #    p acto.movie_id
-      #    p acto.actor_id
-          @role.push(acto.role)
-        end
-      end
-    end
   end
   def create
       @movie = Movie.new(movies_params)
@@ -56,5 +46,13 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to movies_path
+  end
+
+  def rate
+    # save in database
+    
+    @movie = Movie.find(params[:movie_id])
+    current_user.ratings.create(stars: params[:stars], rateable: @movie)
+#    render  action: 'show'
   end
 end

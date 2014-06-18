@@ -1,3 +1,13 @@
+<%= javascript_tag do %>
+$(document).ready(function() {
+  window.$M = new (MyApp.<%= params[:controller].capitalize %> || MyApp.Base)();
+  if (typeof $M.<%= params[:action] %> === 'function') {
+    return $M.<%= params[:action] %>.call();
+  }
+});
+<% end %>
+
+
 <h1>Welcome
 <%=@user.name%>
 </h1>

@@ -1,9 +1,9 @@
 <h1><p><%= @movie.name%></p><h1>
 <hr>
-<%= simple_nested_form_for @movie_rate,url:movie_path(@movie),method: :patch do |f|%>
-<%= f.input :stars,collection: 1..5%>
-<%= f.button :submit%>
-<%end%>
+<%= label_tag :rate_movie %>
+<%= select_tag :stars, options_for_select(1..5)%>
+<%= link_to "rate", "javascript:void(0)", id: "link_rate" %>
+
 <p><%=@movie.description%></p>
 
 <h2>Songs:</h2>
