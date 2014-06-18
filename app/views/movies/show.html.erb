@@ -2,8 +2,7 @@
 <hr>
 
 <script>
-  var movie_id = "<%= @movie.id %>"
-  $( document ).on( "click", "link_rate" );   
+  var movie_id = "<%= @movie.id %>"   
 </script>
 
 <%= label_tag :rate_movie %>
@@ -11,8 +10,7 @@
   <%= label_tag :star,@rated%>
   <% else%>
   <%= select_tag :stars, options_for_select(1..5)%>
-
-  <%= link_to "rate", "javascript:void(0)", id: "link_rate" %>
+    <%= link_to "rate", "javascript:void(0)", id: "link_rate" %>
 <%end%>
 
 <p><%=@movie.description%></p>

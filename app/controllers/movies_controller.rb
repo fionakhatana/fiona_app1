@@ -62,7 +62,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     #p current_user
     current_user.ratings.create(stars: params[:stars], rateable: @movie)
-    #render  action: 'show'
-
+    #render nothing: true
+  #  render  action: 'show'
   end
 end
